@@ -20,20 +20,29 @@ namespace RoomCalculator
             bool keepMeasuring = true;
             string continueAnswer;
             string answerToLower;
+            string sideLength = "";
+            string sideWidth = "";
+            string sideHeight = "";
+            double sLength = 0;
+            double sWidth = 0;
+            double sHeight = 0;
+            string w1 = "length";
+            string w2 = "width";
+            string w3 = "height";
 
             while (keepMeasuring)
             {
-                Console.WriteLine("Please enter the length of the room.");
-                string sideLength = Console.ReadLine();
-                double sLength = double.Parse(sideLength);
+                AskQuestion(w1);
+                sideLength = GetString(sideLength);
+                sLength = GetParseDouble(sideLength, sLength);
 
-                Console.WriteLine("Please enter the width of the room.");
-                string sideWidth = Console.ReadLine();
-                double sWidth = double.Parse(sideWidth);
+                AskQuestion(w2);
+                sideWidth = GetString(sideLength);
+                sWidth = GetParseDouble(sideWidth, sWidth);
 
-                Console.WriteLine("Please enter the height of the room.");
-                string sideHeight = Console.ReadLine();
-                double sHeight = double.Parse(sideHeight);
+                AskQuestion(w3);
+                sideHeight = GetString(sideLength);
+                sHeight = GetParseDouble(sideHeight, sHeight);
 
                 double area = GetArea(sLength, sWidth);
                 double perimeter = GetPerimeter(sLength, sWidth);
@@ -44,9 +53,10 @@ namespace RoomCalculator
 
                 bool keepGoing = true;
 
+                //Note to self: Work on GetBool methods.
                 while (keepGoing)
                 {
-                    Console.WriteLine("Would you like to continue measuring rectangles? (Y/N)");
+                    Console.WriteLine("Would you like to continue measuring rooms? (Y/N)");
 
                     continueAnswer = Console.ReadLine();
                     answerToLower = continueAnswer.ToLower();
@@ -71,9 +81,14 @@ namespace RoomCalculator
             }
         }
 
+        public static void AskQuestion(string input)
+        {
+            Console.WriteLine($"Please enter the {input} of the room.");
+        }
         public static string GetString(string input)
         {
-            return input = Console.ReadLine();
+            string output;
+            return output = Console.ReadLine();
         }
 
         public static double GetParseDouble(string input, double num1)
