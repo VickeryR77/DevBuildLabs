@@ -35,22 +35,53 @@ namespace RoomCalculator
                 string sideHeight = Console.ReadLine();
                 double sHeight = double.Parse(sideHeight);
 
-                double area = GetArea(sLength,sWidth);
-                double perimeter = GetPerimeter(sLength,sWidth);
+                double area = GetArea(sLength, sWidth);
+                double perimeter = GetPerimeter(sLength, sWidth);
                 double volume = GetVolume(area, sHeight);
                 string roomSize = GetRoomSize(area);
 
                 DisplayAnswers(area, perimeter, volume, roomSize);
-                GetContinue(keepMeasuring);
-            }
 
-            
+                bool keepGoing = true;
+
+                while (keepGoing)
+                {
+                    Console.WriteLine("Would you like to continue measuring rectangles? (Y/N)");
+
+                    continueAnswer = Console.ReadLine();
+                    answerToLower = continueAnswer.ToLower();
+
+                    if (answerToLower == "yes" || answerToLower == "y")
+                    {
+                        keepGoing = false;
+                        keepMeasuring = true;
+                    }
+                    else if (answerToLower == "no" || answerToLower == "n")
+                    {
+                        keepGoing = false;
+                        keepMeasuring = false;
+                    }
+                    else
+                    {
+                        keepGoing = true;
+                    }
+
+                }
+
+            }
         }
+
+        public static string GetString(string input)
+        {
+            return input = Console.ReadLine();
+        }
+
         public static double GetParseDouble(string input, double num1)
         {
-            num1 = double.Parse(input);
-            return num1;
+           num1 = double.Parse(input);
+           return num1;
         }
+        
         public static double GetPerimeter(double num1, double num2)
         {
             double perimeter = 2 * (num1 + num2);
@@ -100,23 +131,9 @@ namespace RoomCalculator
             Console.WriteLine($"Room size: {size}");
             Console.WriteLine("");
 
-            Console.WriteLine("Would you like to continue measuring rectangles?");
-        }
-
-        public static bool GetContinue(bool answer)
-        {
-            string continueAnswer = Console.ReadLine();
-            string answerToLower = continueAnswer.ToLower();
-            if (answerToLower == "yes" || answerToLower == "y")
-            {
-                return answer = true;
-            }
-            else
-            {
-                return answer = false;
-            }
+         }
         }
 
     }
-}
+
 
