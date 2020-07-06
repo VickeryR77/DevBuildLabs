@@ -8,15 +8,18 @@ namespace RoomCalculator
         //App prompts user to enter height and width.
         //Display area, perimeter and room size.
         //Room size classification (Requirements for small 1-250, med 251-649, large >= 650)
+        //Room Volume
         //Prompt to continue, or end.
 
         static void Main(string[] args)
         {
-            Build();           
+            Build();
+            //Kicks off the build method to begin the program.
         }
     
      public static void Build()
         {
+            //Build list of important things we will need to use the program.
             bool keepMeasuring = true;
             string continueAnswer;
             string answerToLower;
@@ -30,11 +33,16 @@ namespace RoomCalculator
             string w2 = "width";
             string w3 = "height";
 
+            //While loop to keep the code going until the user is finished.
             while (keepMeasuring)
             {
+                //Ask method that pulls a question using a string to customize the query.
                 AskQuestion(w1);
                 sideLength = GetString(sideLength);
+
+                //Parse method to turn the string into a double.
                 sLength = GetParseDouble(sideLength, sLength);
+                //Would probably add number validation instead of this in a real world situatoin.
 
                 AskQuestion(w2);
                 sideWidth = GetString(sideLength);
@@ -44,16 +52,18 @@ namespace RoomCalculator
                 sideHeight = GetString(sideLength);
                 sHeight = GetParseDouble(sideHeight, sHeight);
 
+                //Methods for the maths.
                 double area = GetArea(sLength, sWidth);
                 double perimeter = GetPerimeter(sLength, sWidth);
                 double volume = GetVolume(area, sHeight);
                 string roomSize = GetRoomSize(area);
 
+                //Display method.
                 DisplayAnswers(area, perimeter, volume, roomSize);
 
+                //Continue measuring rooms ask.
                 bool keepGoing = true;
 
-                //Note to self: Work on GetBool methods.
                 while (keepGoing)
                 {
                     Console.WriteLine("Would you like to continue measuring rooms? (Y/N)");
