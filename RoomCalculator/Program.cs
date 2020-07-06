@@ -42,7 +42,7 @@ namespace RoomCalculator
 
                 //Parse method to turn the string into a double.
                 sLength = GetParseDouble(sideLength, sLength);
-                //Would probably add number validation instead of this in a real world situatoin.
+                //Would probably add number validation instead of this in a real world situation.
 
                 AskQuestion(w2);
                 sideWidth = GetString(sideLength);
