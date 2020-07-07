@@ -45,11 +45,11 @@ namespace RoomCalculator
                 //Would probably add number validation instead of this in a real world situation.
 
                 AskQuestion(w2);
-                sideWidth = GetString(sideLength);
+                sideWidth = GetString(sideWidth);
                 sWidth = GetParseDouble(sideWidth, sWidth);
 
                 AskQuestion(w3);
-                sideHeight = GetString(sideLength);
+                sideHeight = GetString(sideHeight);
                 sHeight = GetParseDouble(sideHeight, sHeight);
 
                 //Methods for the maths.
